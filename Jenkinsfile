@@ -66,7 +66,9 @@ pipeline {
         }
         stage ("Acceptance Test"){
             steps {
+                /*
                 sleep 60
+                */
                 sh "./acceptance_test.sh"
             }
         }
