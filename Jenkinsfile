@@ -73,7 +73,7 @@ pipeline {
     }
     post {
         always {
-            sh "docker stop calculator"
+            sh "docker stop localhost:5000/myname/calculator"
         }
     }
 }
