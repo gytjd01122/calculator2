@@ -4,4 +4,4 @@
 CALCULATOR_PORT=$(docker-compose port calculator 8090 | cut -d: -f2)
 MY_EXTERNAL_IP=$(curl -s http://whatismyip.akamai.com/)
 echo $CALCULATOR_PORT
-test $(curl --silent MY_EXTERNAL_IP:$CALCULATOR_PORT/sum?a=10\&b=20) -eq 30
+test $(curl --silent $MY_EXTERNAL_IP:$CALCULATOR_PORT/sum?a=10\&b=20) -eq 30
