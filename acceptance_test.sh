@@ -2,5 +2,6 @@
 #test $(curl --silent localhost:8090/sum?a=1\&b=2) -eq 3 || \    # true when it runs on host
 #test $(curl --silent $(docker network inspect -f '{{range .IPAM.Config}}{{.Gateway}}{{end}}' bridge):8090/sum?a=1\&b=2) -eq 3  # true on docker
 CALCULATOR_PORT=$(docker-compose port calculator 8090 | cut -d: -f2)
+MY_EXTERNAL_IP=$(curl -s http://whatismyip.akamai.com/)
 echo $CALCULATOR_PORT
-test $(curl --silent 210.125.29.113:$CALCULATOR_PORT/sum?a=10\&b=20) -eq 30
+test $(curl --silent MY_EXTERNAL_IP:$CALCULATOR_PORT/sum?a=10\&b=20) -eq 30
