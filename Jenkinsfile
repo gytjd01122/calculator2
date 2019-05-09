@@ -73,7 +73,7 @@ pipeline {
     }
     post {
         always {
-            sh "docker stop localhost:5000/myname/calculator"
+            sh "docker-compose down"
         }
     }
 }
